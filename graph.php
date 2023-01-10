@@ -16,10 +16,10 @@ $data = array_map(
     explode(',', $options['data'])
 );
 
-$lastPoint = min($data);
-$firstPoint = max($data);
+$firstPointValue = min($data);
+$lastPointValue = max($data);
 
 foreach ($data as $value) {
-    $point = round(($lastPoint - $value) * GRAPH_WIDTH / ($lastPoint - $firstPoint));
+    $point = round(($firstPointValue - $value) * GRAPH_WIDTH / ($firstPointValue - $lastPointValue));
     echo sprintf("%" . $point . "s\n", '*');
 }
